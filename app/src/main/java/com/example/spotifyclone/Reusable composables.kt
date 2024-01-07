@@ -16,9 +16,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
+val poppins = FontFamily(
+    Font(R.font.poppins_black , FontWeight.Black),
+    Font(R.font.poppins_bold , FontWeight.Bold),
+    Font(R.font.poppins_extrabold , FontWeight.ExtraBold),
+    Font(R.font.poppins_extralight , FontWeight.ExtraLight),
+    Font(R.font.poppins_light , FontWeight.Light),
+    Font(R.font.poppins_medium , FontWeight.Medium),
+    Font(R.font.poppins_regular , FontWeight.Normal),
+    Font(R.font.poppins_thin , FontWeight.Thin),
+    Font(R.font.poppins_semibold, FontWeight.SemiBold),
+    Font(R.font.poppins_semibolditalic, FontWeight.SemiBold)
+)
+
+val iconSize = 32.dp
+val headingSize = 30.sp
+val posterSize = 170.dp
 
 @Composable
 fun ReusableTextButton(
@@ -56,7 +75,7 @@ fun ReusableTextButton(
                 painter = painterSource,
                 contentDescription = contentDescription,
                 modifier = modifier
-                    .size(32.dp)
+                    .size(iconSize)
             )
             Row (
                 modifier = modifier
@@ -76,3 +95,6 @@ fun ReusableTextButton(
         }
     }
 }
+
+data class ImageWithLabel(val image: Painter, val label: String)
+

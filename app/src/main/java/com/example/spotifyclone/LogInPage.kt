@@ -25,37 +25,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-val poppins = FontFamily(
-    Font(R.font.poppins_black , FontWeight.Black),
-    Font(R.font.poppins_blackitalic , FontWeight.Black),
-    Font(R.font.poppins_bold , FontWeight.Bold),
-    Font(R.font.poppins_bolditalic , FontWeight.Bold),
-    Font(R.font.poppins_extrabold , FontWeight.ExtraBold),
-    Font(R.font.poppins_extrabolditalic , FontWeight.ExtraBold),
-    Font(R.font.poppins_extralight , FontWeight.ExtraLight),
-    Font(R.font.poppins_extralightitalic , FontWeight.ExtraLight),
-    Font(R.font.poppins_italic , FontWeight.Normal),
-    Font(R.font.poppins_light , FontWeight.Light),
-    Font(R.font.poppins_lightitalic , FontWeight.Light),
-    Font(R.font.poppins_medium , FontWeight.Medium),
-    Font(R.font.poppins_mediumitalic , FontWeight.Medium),
-    Font(R.font.poppins_regular , FontWeight.Normal),
-    Font(R.font.poppins_thin , FontWeight.Thin),
-    Font(R.font.poppins_thinitalic, FontWeight.Thin),
-    Font(R.font.poppins_semibold, FontWeight.SemiBold),
-    Font(R.font.poppins_semibolditalic, FontWeight.SemiBold)
-)
 @Composable
 fun LoginPage(){
     val buttonPadding = 15.dp
-    val size = 30.sp
     Column (
         modifier = Modifier
             .fillMaxSize()
     ){
         Surface (
             Modifier.fillMaxSize(),
-            color = Color.Black
+            color = Color(0xff121212)
         ) {
             Column (
                 modifier = Modifier
@@ -81,7 +60,7 @@ fun LoginPage(){
                         text = "Millions of songs",
                         style = TextStyle(
                             color = Color.White,
-                            fontSize = size,
+                            fontSize = headingSize,
                             fontFamily = poppins,
                             fontWeight = FontWeight.Bold
                         )
@@ -90,7 +69,7 @@ fun LoginPage(){
                         text = "Free on Spotify.",
                         style = TextStyle(
                             color = Color.White,
-                            fontSize = size,
+                            fontSize = headingSize,
                             fontFamily = poppins,
                             fontWeight = FontWeight.Bold
                         )
