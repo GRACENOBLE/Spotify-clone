@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -19,6 +21,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -55,7 +58,7 @@ fun ReusableTextButton(
             .padding(
                 start = buttonPadding,
                 end = buttonPadding,
-                top= 5.dp
+                top = 5.dp
             )
             .border(
                 width = 1.dp,
@@ -96,5 +99,40 @@ fun ReusableTextButton(
     }
 }
 
-data class ImageWithLabel(val image: Painter, val label: String)
+@Composable
+fun ReusableSurface(
+    genre: String,
+    color: Color
+){
+    Surface (
+        modifier = Modifier
+            .height(130.dp)
+            .width(180.dp),
+        shape = RoundedCornerShape(10.dp),
+        color = color,
+    ) {
+        Text(
+            modifier = Modifier
+                .padding(
+                    start = 10.dp,
+                    top = 10.dp),
+            text = genre,
+            style = TextStyle(
+                fontFamily = poppins,
+                color = Color.White,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 20.sp,
+            )
+        )
+    }
+}
+
+@Preview(
+    showSystemUi = true,
+    showBackground = true
+)
+@Composable
+fun ReusableComposable(){
+
+}
 
