@@ -169,7 +169,7 @@ fun ReusableMusicTab(
                         modifier = Modifier
                             .clip(shape = RoundedCornerShape(3.dp))
                     ){
-                        Text(text = " Lyrics ")
+                        Text(text = " LYRICS ")
                     }
                     Text(
                         text = author,
