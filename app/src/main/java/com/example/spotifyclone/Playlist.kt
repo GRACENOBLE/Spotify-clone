@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun MusicPlayerPage(){
+fun PlayListPage(){
     Surface(
         color = Color(0xff121212)
     ) {
@@ -169,5 +169,5 @@ fun MusicPlayerPage(){
 )
 @Composable
 fun MusicPlayerPagePreview(){
-    MusicPlayerPage()
+    PlayListPage()
 }
