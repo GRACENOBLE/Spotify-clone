@@ -3,7 +3,9 @@ package com.example.spotifyclone
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,9 +16,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -127,12 +132,76 @@ fun ReusableSurface(
     }
 }
 
+@Composable
+fun ReusableMusicTab(
+    poster: Painter,
+    title: String,
+    author: String
+){
+    Row (
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){
+        Row {
+            Image(
+                modifier = Modifier
+                    .size(60.dp),
+                painter = poster,
+                contentDescription = "Variable music poster"
+            )
+            Column (
+                modifier = Modifier
+                    .padding(start = 10.dp)
+            ) {
+                Text(
+                    text = title,
+                    style = TextStyle(
+                        color = Color.White,
+                        fontFamily = poppins,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                )
+                Row {
+                    Surface (
+                        modifier = Modifier
+                            .clip(shape = RoundedCornerShape(3.dp))
+                    ){
+                        Text(text = " Lyrics ")
+                    }
+                    Text(
+                        text = author,
+                        style = TextStyle(
+                            color = Color.White,
+                            fontFamily = poppins,
+                            fontWeight = FontWeight.Light
+                        )
+                    )
+                }
+            }
+        }
+        Image(
+            modifier = Modifier
+                .size(30.dp),
+            painter = painterResource(id = R.drawable.properties),
+            contentDescription = "Properties"
+        )
+    }
+}
+
 @Preview(
     showSystemUi = true,
     showBackground = true
 )
 @Composable
 fun ReusableComposable(){
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = Color(0xff121212)
+    ) {
 
+    }
 }
 
