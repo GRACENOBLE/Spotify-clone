@@ -168,6 +168,6 @@ fun PlayListPage(){
     showSystemUi = true
 )
 @Composable
-fun MusicPlayerPagePreview(){
+fun PlaylistPagePreview(){
     PlayListPage()
 }
