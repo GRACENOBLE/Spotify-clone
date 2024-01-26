@@ -1,4 +1,4 @@
-package com.example.spotifyclone
+package com.example.spotifyclone.ui.theme.Screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -24,6 +24,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.spotifyclone.R
+import com.example.spotifyclone.ui.theme.data.ReusableMusicTab
+import com.example.spotifyclone.ui.theme.data.poppins
 
 @Composable
 fun PlayListPage(){
