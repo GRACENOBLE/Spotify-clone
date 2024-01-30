@@ -12,28 +12,38 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 
 val items = listOf(
     BottomNavigationElement (
         title = "Home",
-        icon = Icons.Rounded.Home
+        icon = Icons.Rounded.Home,
+        onClick = {}
     ),
     BottomNavigationElement (
         title = "Search",
-        icon = Icons.Rounded.Search
+        icon = Icons.Rounded.Search,
+        onClick = {}
     ),
     BottomNavigationElement (
         title = "Library",
-        icon = Icons.Rounded.LibraryMusic
+        icon = Icons.Rounded.LibraryMusic,
+        onClick = {}
     ),
 
 )
 
+@Preview
 @Composable
 fun BottomNavigationBar(){
     NavigationBar (
         modifier = Modifier
-            .background(MaterialTheme.colorScheme.inverseOnSurface)
+            .background(MaterialTheme.colorScheme.onBackground),
+        Color(0xff121212),
+
     ){
         items.forEachIndexed { index, item ->
             NavigationBarItem(
@@ -43,14 +53,14 @@ fun BottomNavigationBar(){
                     Icon(
                         imageVector = item.icon,
                         contentDescription = item.title,
-                        tint = MaterialTheme.colorScheme.onBackground
+                        tint = Color.Gray
                     )
                 },
 
                 label ={
                     Text(
                         text = item.title,
-                        color = MaterialTheme.colorScheme.onBackground
+                        color = Color.White
                     )
                 }
             )

@@ -59,7 +59,7 @@ val TopPickLabels = arrayOf(
 )
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreenPage(){
+fun HomeScreen(){
     Surface (
         color = endColor,
         modifier = Modifier
@@ -239,5 +239,5 @@ fun HomeScreenPage(){
 )
 @Composable
 fun HomeScreenPreview(){
-    HomeScreenPage()
+    HomeScreen()
 }

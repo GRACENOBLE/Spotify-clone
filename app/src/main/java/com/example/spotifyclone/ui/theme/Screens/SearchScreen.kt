@@ -20,13 +20,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.ui.theme.data.ReusableSurface
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Background(){
+fun SearchScreen(){
     Surface (
         modifier =Modifier
             .fillMaxSize(),
@@ -179,5 +181,5 @@ fun Background(){
 
 @Composable
 fun SearchScreenPreview(){
-    Background()
+    SearchScreen()
 }
