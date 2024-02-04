@@ -1,4 +1,4 @@
-package com.example.spotifyclone.ui.theme.Screens
+package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

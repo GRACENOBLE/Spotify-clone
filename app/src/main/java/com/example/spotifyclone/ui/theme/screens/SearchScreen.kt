@@ -1,4 +1,4 @@
-package com.example.spotifyclone.ui.theme.Screens
+package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,8 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.ui.theme.data.ReusableSurface
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.poppins
