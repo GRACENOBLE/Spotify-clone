@@ -53,15 +53,19 @@ fun SearchScreen(){
                     )
             )
 
-            TextField(
-                value = "Artists, songs, or podcasts",
-                onValueChange = {},
-                modifier = Modifier
-                    .padding(
-                        start = 10.dp,
-                        top = 30.dp
-                    )
-            )
+            Row {
+                TextField(
+                    value = "Artists, songs, or podcasts",
+                    onValueChange = {},
+                    modifier = Modifier
+                        .padding(
+                            start = 10.dp,
+                            end = 10.dp,
+                            top = 30.dp
+                        )
+                        .fillMaxWidth(),
+                )
+            }
 
             Text(
                 text = "Your top genres",

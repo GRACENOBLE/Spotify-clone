@@ -5,5 +5,5 @@ import androidx.compose.ui.graphics.vector.ImageVector
 data class BottomNavigationElement (
     val title: String,
     val icon: ImageVector,
-    val onClick: () -> Unit
+    val route: String
 )

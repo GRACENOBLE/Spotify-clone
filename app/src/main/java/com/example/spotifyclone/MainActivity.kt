@@ -8,10 +8,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.spotifyclone.ui.theme.SpotifyCloneTheme
-import com.example.spotifyclone.ui.theme.screens.MusicPlayerPage
+import com.example.spotifyclone.ui.theme.data.BottomNavigationBar
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -21,7 +20,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MusicPlayerPage()
+                    BottomNavigationBar()
                 }
             }
         }

@@ -146,7 +146,7 @@ fun ReusableSurface(
     Surface (
         modifier = Modifier
             .height(130.dp)
-            .width(180.dp),
+            .width(170.dp),
         shape = RoundedCornerShape(10.dp),
         color = color,
     ) {
@@ -246,11 +246,12 @@ fun ReusableComposable(){
         modifier = Modifier.fillMaxSize(),
         color = Color(0xff121212)
     ) {
-        ReusableMusic(
-            painterSource = painterResource(id = R.drawable.ed_sheeran),
-            contentDescription = "Ed Sheran",
-            label = "Ed Sheeran, Katy Perry, Pit-bull and more"
-        )
+        Column {
+            ReusableSurface(
+                genre = "Dude",
+                color = Color.LightGray
+            )
+        }
     }
 }
 

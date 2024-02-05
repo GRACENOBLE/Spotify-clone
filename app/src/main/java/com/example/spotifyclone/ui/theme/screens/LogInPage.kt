@@ -1,6 +1,7 @@
 package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,13 +23,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableTextButton
+import com.example.spotifyclone.ui.theme.data.Screen
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @Composable
-fun LoginPage(){
+fun LoginPage(navController: NavController){
     val buttonPadding = 15.dp
     Column (
         modifier = Modifier
@@ -79,7 +83,7 @@ fun LoginPage(){
                 }
                 Column {//column of buttons
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
@@ -100,21 +104,21 @@ fun LoginPage(){
                         )
                     }
                     ReusableTextButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
                         painterSource = painterResource(id = R.drawable.phone),
                         contentDescription = "phone",
                         buttonText = "Continue with phone number"
                     )
 
                     ReusableTextButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
                         painterSource = painterResource(id = R.drawable.google),
                         contentDescription = "google icon",
                         buttonText = "Continue with Google"
                     )
 
                     ReusableTextButton(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
                         painterSource = painterResource(id = R.drawable.facebook),
                         contentDescription = "facebook",
                         buttonText = "Continue with Facebook"
@@ -129,7 +133,8 @@ fun LoginPage(){
                         .padding(
                             bottom = 70.dp,
                             top = 10.dp
-                        ),
+                        )
+                        .clickable { },
                     fontFamily = poppins,
                     fontWeight = FontWeight.Bold
                 )
@@ -144,5 +149,5 @@ fun LoginPage(){
 )
 @Composable
 fun LoginPagePreview(){
-    LoginPage()
+    LoginPage(navController = rememberNavController())
 }
