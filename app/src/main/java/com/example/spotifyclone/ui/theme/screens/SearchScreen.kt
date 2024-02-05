@@ -1,30 +1,33 @@
 package com.example.spotifyclone.ui.theme.screens
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableSurface
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(){
     Surface (
@@ -53,18 +56,35 @@ fun SearchScreen(){
                     )
             )
 
-            Row {
-                TextField(
-                    value = "Artists, songs, or podcasts",
-                    onValueChange = {},
-                    modifier = Modifier
-                        .padding(
-                            start = 10.dp,
-                            end = 10.dp,
-                            top = 30.dp
+            Surface (
+                color = Color.White,
+                modifier = Modifier
+                    .padding(
+                        start = 10.dp,
+                        end = 10.dp
+                    )
+                    .fillMaxWidth()
+                    .clickable {  }
+            ){
+                Row (
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .size(50.dp),
+                        painter = painterResource(
+                            id = R.drawable.search),
+                        contentDescription = ""
+                    )
+                    Text(
+                        text = "What do you want to listen to?",
+                        style = TextStyle(
+                            fontFamily = poppins,
+                            fontSize = 15.sp,
+                            color = Color.Black
                         )
-                        .fillMaxWidth(),
-                )
+                    )
+                }
             }
 
             Text(
@@ -86,7 +106,7 @@ fun SearchScreen(){
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 10.dp),
-                horizontalArrangement = Arrangement.SpaceAround
+                horizontalArrangement = Arrangement.SpaceEvenly
             ){
                 ReusableSurface(
                     genre = "Pop",
@@ -122,7 +142,7 @@ fun SearchScreen(){
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceAround
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     ReusableSurface(
                         genre = "Podcasts",
@@ -140,7 +160,7 @@ fun SearchScreen(){
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceAround
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     ReusableSurface(
                         genre = "Charts",
@@ -156,7 +176,7 @@ fun SearchScreen(){
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceAround
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     ReusableSurface(
                         genre = "Made for\n" + "you",
