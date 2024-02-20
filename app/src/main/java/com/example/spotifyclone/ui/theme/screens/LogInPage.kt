@@ -107,7 +107,7 @@ fun LoginPage(navController: NavController){
                         onClick = { navController.navigate(route = Screen.HomeScreen.route) },
                         painterSource = painterResource(id = R.drawable.phone),
                         contentDescription = "phone",
-                        buttonText = "Continue with phone number"
+                        buttonText = "Continue with phone"
                     )
 
                     ReusableTextButton(

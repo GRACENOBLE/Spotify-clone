@@ -188,6 +188,120 @@ fun SearchScreen(){
                     )
 
                 }
+
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Afro",
+                        color = Color(0xffE13300)
+                    )
+                    ReusableSurface(
+                        genre = "Love",
+                        color = Color(0xffE8125C)
+                    )
+
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Hip-Hop",
+                        color = Color(0xff8C67AC)
+                    )
+                    ReusableSurface(
+                        genre = "Comedy",
+                        color = Color(0xff1E3264)
+                    )
+
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Educational",
+                        color = Color(0xff1E3264)
+                    )
+                    ReusableSurface(
+                        genre = "Documentary",
+                        color = Color(0xff477D95)
+                    )
+
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Pop-Culture",
+                        color = Color(0xff8C67AC)
+                    )
+                    ReusableSurface(
+                        genre = "Party",
+                        color = Color(0xff477D95)
+                    )
+
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Mood",
+                        color = Color(0xff1E3264)
+                    )
+                    ReusableSurface(
+                        genre = "Discover",
+                        color = Color(0xff477D95)
+                    )
+
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Trending",
+                        color = Color(0xffE13300)
+                    )
+                    ReusableSurface(
+                        genre = "Workout",
+                        color = Color(0xffE8125C)
+                    )
+
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    ReusableSurface(
+                        genre = "Radio",
+                        color = Color(0xff1E3264)
+                    )
+                    ReusableSurface(
+                        genre = "R&B",
+                        color = Color(0xff477D95)
+                    )
+
+                }
+
             }
 
 
