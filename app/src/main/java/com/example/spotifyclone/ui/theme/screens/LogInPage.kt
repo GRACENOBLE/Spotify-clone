@@ -111,14 +111,14 @@ fun LoginPage(navController: NavController){
                     )
 
                     ReusableTextButton(
-                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
+                        onClick = { navController.navigate(route = Screen.AppRoute.route) },
                         painterSource = painterResource(id = R.drawable.google),
                         contentDescription = "google icon",
                         buttonText = "Continue with Google"
                     )
 
                     ReusableTextButton(
-                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
+                        onClick = { navController.navigate(route = Screen.AppRoute.route) },
                         painterSource = painterResource(id = R.drawable.facebook),
                         contentDescription = "facebook",
                         buttonText = "Continue with Facebook"

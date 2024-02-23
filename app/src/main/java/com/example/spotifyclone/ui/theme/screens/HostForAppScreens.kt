@@ -97,11 +97,6 @@ fun HostPage(){
             modifier = Modifier
                 .padding(padding)
         ) {
-            composable(
-                route = Screen.LoginPage.route
-            ) {
-                LoginPage(navController = navController)
-            }
 
             composable(
                 route = Screen.HomeScreen.route
