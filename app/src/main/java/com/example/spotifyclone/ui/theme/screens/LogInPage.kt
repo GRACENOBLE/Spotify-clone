@@ -83,7 +83,7 @@ fun LoginPage(navController: NavController){
                 }
                 Column {//column of buttons
                     Button(
-                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
+                        onClick = { navController.navigate(route = Screen.AccountCreationScreen.route) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(
@@ -104,7 +104,7 @@ fun LoginPage(navController: NavController){
                         )
                     }
                     ReusableTextButton(
-                        onClick = { navController.navigate(route = Screen.HomeScreen.route) },
+                        onClick = { navController.navigate(route = Screen.PhoneNumberScreen.route) },
                         painterSource = painterResource(id = R.drawable.phone),
                         contentDescription = "phone",
                         buttonText = "Continue with phone"

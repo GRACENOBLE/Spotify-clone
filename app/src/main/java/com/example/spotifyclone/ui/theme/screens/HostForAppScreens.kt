@@ -1,4 +1,4 @@
-package com.example.spotifyclone.ui.theme.data
+package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
@@ -23,45 +23,40 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.spotifyclone.ui.theme.screens.HomeScreen
-import com.example.spotifyclone.ui.theme.screens.LibraryScreen
-import com.example.spotifyclone.ui.theme.screens.LoginPage
-import com.example.spotifyclone.ui.theme.screens.SearchScreen
+import com.example.spotifyclone.ui.theme.data.BottomNavigationElement
+import com.example.spotifyclone.ui.theme.data.Screen
 
 val items = listOf(
-    BottomNavigationElement (
+    BottomNavigationElement(
         title = "Home",
         icon = Icons.Rounded.Home,
         route = Screen.HomeScreen.route
     ),
-    BottomNavigationElement (
+    BottomNavigationElement(
         title = "Search",
         icon = Icons.Rounded.Search,
         route = Screen.SearchScreen.route
     ),
-    BottomNavigationElement (
+    BottomNavigationElement(
         title = "Library",
         icon = Icons.Rounded.LibraryMusic,
         route = Screen.Library.route
-    ),
-
+    )
 )
 
-//@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BottomNavigationBar() {
+fun HostPage(){
 
     val navController = rememberNavController()
 
-    Scaffold(
+    Scaffold (
         bottomBar = {
-            NavigationBar(
+            NavigationBar (
                 modifier = Modifier
                     .background(MaterialTheme.colorScheme.onBackground),
-                Color(0xff121212),
-
-                ) {
+                Color(0xff121212)
+            ) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
 
@@ -94,39 +89,37 @@ fun BottomNavigationBar() {
                     )
                 }
             }
-
         }
     ) { padding ->
         NavHost(
             navController = navController,
-            startDestination = Screen.LoginPage.route,
+            startDestination = Screen.HomeScreen.route,
             modifier = Modifier
                 .padding(padding)
-        ){
+        ) {
             composable(
                 route = Screen.LoginPage.route
-            ){
+            ) {
                 LoginPage(navController = navController)
             }
 
             composable(
                 route = Screen.HomeScreen.route
-            ){
-                HomeScreen()
+            ) {
+                HomeScreen(navController = navController)
             }
 
             composable(
                 route = Screen.SearchScreen.route
-            ){
+            ) {
                 SearchScreen()
             }
 
             composable(
                 route = Screen.Library.route
-            ){
-            LibraryScreen()
+            ) {
+                LibraryScreen()
             }
-
         }
     }
 }

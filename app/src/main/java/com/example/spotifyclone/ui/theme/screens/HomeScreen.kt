@@ -25,6 +25,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableMusic
 import com.example.spotifyclone.ui.theme.data.endColor
@@ -57,7 +59,7 @@ val TopPickLabels = arrayOf(
 )
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
     Surface (
         color = endColor,
         modifier = Modifier
@@ -423,5 +425,5 @@ fun HomeScreen(){
 )
 @Composable
 fun HomeScreenPreview(){
-    HomeScreen()
+    HomeScreen(navController = rememberNavController())
 }

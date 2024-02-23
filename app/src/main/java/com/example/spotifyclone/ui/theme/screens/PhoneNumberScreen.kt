@@ -27,14 +27,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
+import com.example.spotifyclone.ui.theme.data.Screen
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.iconSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PhoneNumberScreen(){
+fun PhoneNumberScreen(navController: NavController){
     Surface(
         color = Color(0xff121212)
     ) {
@@ -104,7 +107,9 @@ fun PhoneNumberScreen(){
             Button(
                 modifier = Modifier
                     .align(alignment = Alignment.CenterHorizontally),
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.navigate(route = Screen.AppRoute.route)
+                },
                 colors = ButtonDefaults.buttonColors(Color(0xff4CAF50))
             ) {
                 Text(
@@ -128,6 +133,6 @@ fun PhoneNumberScreen(){
 )
 @Composable
 fun PhoneNumberScreenPreview(){
-    PhoneNumberScreen()
+    PhoneNumberScreen(navController = rememberNavController())
 }
 
