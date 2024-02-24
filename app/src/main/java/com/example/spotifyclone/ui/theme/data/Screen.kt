@@ -10,6 +10,8 @@ sealed class Screen (val route: String) {
     object AuthenticationRoute : Screen("Auth")
     object AppRoute : Screen("App")
     object HostPageRoute : Screen("Host")
+    object AccountLoginScreen : Screen("AccountLoginScreen")
+    object ForgotPasswordScreen : Screen("ForgotPasswordScreen")
 
 
 }

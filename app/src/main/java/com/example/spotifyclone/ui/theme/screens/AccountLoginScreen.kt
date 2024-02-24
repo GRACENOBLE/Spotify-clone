@@ -29,14 +29,17 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
+import com.example.spotifyclone.ui.theme.data.Screen
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.iconSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AccountLoginScreen(){
+fun AccountLoginScreen(navController: NavController){
     Surface(
         modifier =Modifier
             .fillMaxSize(),
@@ -131,7 +134,9 @@ fun AccountLoginScreen(){
                 )
 
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                        navController.navigate(route = Screen.AppRoute.route)
+                    },
                     colors = ButtonDefaults.buttonColors(Color(0xff4CAF50)),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -146,7 +151,9 @@ fun AccountLoginScreen(){
 
                 Text(
                     modifier = Modifier
-                        .clickable { },
+                        .clickable {
+                            navController.navigate(route = Screen.ForgotPasswordScreen.route)
+                        },
                     text = "Forgot Password?",
                     style = TextStyle(
                         color = Color.Gray
@@ -163,5 +170,5 @@ fun AccountLoginScreen(){
 )
 @Composable
 fun AccountLoginScreenPreview(){
-    AccountLoginScreen()
+    AccountLoginScreen(navController = rememberNavController())
 }

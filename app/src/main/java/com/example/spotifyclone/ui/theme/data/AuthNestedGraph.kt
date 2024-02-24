@@ -5,6 +5,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.example.spotifyclone.ui.theme.screens.AccountCreationPage
+import com.example.spotifyclone.ui.theme.screens.AccountLoginScreen
+import com.example.spotifyclone.ui.theme.screens.ForgotPasswordPage
 import com.example.spotifyclone.ui.theme.screens.LoginPage
 import com.example.spotifyclone.ui.theme.screens.PhoneNumberScreen
 
@@ -18,6 +20,12 @@ fun NavGraphBuilder.authNestedGraph(navController: NavController){
         }
         composable(route = Screen.PhoneNumberScreen.route){
             PhoneNumberScreen(navController = navController)
+        }
+        composable(route = Screen.AccountLoginScreen.route){
+            AccountLoginScreen(navController = navController)
+        }
+        composable(route = Screen.ForgotPasswordScreen.route){
+            ForgotPasswordPage(navController = navController)
         }
     }
 }

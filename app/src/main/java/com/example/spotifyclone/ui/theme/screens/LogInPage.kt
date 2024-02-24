@@ -134,7 +134,9 @@ fun LoginPage(navController: NavController){
                             bottom = 70.dp,
                             top = 10.dp
                         )
-                        .clickable { },
+                        .clickable {
+                            navController.navigate(route = Screen.AccountLoginScreen.route)
+                        },
                     fontFamily = poppins,
                     fontWeight = FontWeight.Bold
                 )
