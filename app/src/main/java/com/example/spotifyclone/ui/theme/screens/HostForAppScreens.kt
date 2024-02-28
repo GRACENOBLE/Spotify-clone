@@ -15,6 +15,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -48,45 +50,51 @@ val items = listOf(
 @Composable
 fun HostPage(){
 
+    val currentScreen = remember {
+        mutableStateOf<Screen>(Screen.HomeScreen)
+    }
+
     val navController = rememberNavController()
 
     Scaffold (
         bottomBar = {
-            NavigationBar (
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.onBackground),
-                Color(0xff121212)
-            ) {
-                val navBackStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination
+            if (currentScreen.value != Screen.MusicPlayerScreen){
+                NavigationBar (
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.onBackground),
+                    Color(0xff121212)
+                ) {
+                    val navBackStackEntry by navController.currentBackStackEntryAsState()
+                    val currentDestination = navBackStackEntry?.destination
 
-                items.forEach { item ->
-                    NavigationBarItem(
-                        selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
-                        onClick = {
-                            navController.navigate(item.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
+                    items.forEach { item ->
+                        NavigationBarItem(
+                            selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                            onClick = {
+                                navController.navigate(item.route) {
+                                    popUpTo(navController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
+                                    launchSingleTop = true
+                                    restoreState = true
                                 }
-                                launchSingleTop = true
-                                restoreState = true
-                            }
-                        },
-                        icon = {
-                            Icon(
-                                imageVector = item.icon,
-                                contentDescription = item.title,
-                                tint = Color.Gray
-                            )
-                        },
+                            },
+                            icon = {
+                                Icon(
+                                    imageVector = item.icon,
+                                    contentDescription = item.title,
+                                    tint = Color.Gray
+                                )
+                            },
 
-                        label = {
-                            Text(
-                                text = item.title,
-                                color = Color.White
-                            )
-                        }
-                    )
+                            label = {
+                                Text(
+                                    text = item.title,
+                                    color = Color.White
+                                )
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -102,24 +110,28 @@ fun HostPage(){
                 route = Screen.HomeScreen.route
             ) {
                 HomeScreen(navController = navController)
+                currentScreen.value = Screen.HomeScreen
             }
 
             composable(
                 route = Screen.SearchScreen.route
             ) {
                 SearchScreen()
+                currentScreen.value = Screen.SearchScreen
             }
 
             composable(
                 route = Screen.Library.route
             ) {
                 LibraryScreen()
+                currentScreen.value = Screen.Library
             }
 
             composable(
                 route = Screen.MusicPlayerScreen.route
             ){
                 MusicPlayerPage()
+                currentScreen.value = Screen.MusicPlayerScreen
             }
         }
     }
