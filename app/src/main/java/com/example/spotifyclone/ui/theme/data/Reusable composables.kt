@@ -2,6 +2,7 @@ package com.example.spotifyclone.ui.theme.data
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.spotifyclone.R
 
 val poppins = FontFamily(
@@ -110,13 +112,18 @@ fun ReusableTextButton(
 fun ReusableMusic(
     painterSource: Painter,
     contentDescription: String,
-    label: String
+    label: String,
+    navController: NavController
 ){
     val reusableWidth = 170.dp
     Column (
         modifier = Modifier
+            .clickable {
+                navController.navigate(route =  Screen.MusicPlayerScreen.route)
+            }
             .width(reusableWidth)
             .padding(end = 10.dp)
+
     ) {
         Image(
             painter = painterSource,

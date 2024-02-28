@@ -115,6 +115,12 @@ fun HostPage(){
             ) {
                 LibraryScreen()
             }
+
+            composable(
+                route = Screen.MusicPlayerScreen.route
+            ){
+                MusicPlayerPage()
+            }
         }
     }
 }

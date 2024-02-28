@@ -12,6 +12,6 @@ sealed class Screen (val route: String) {
     object HostPageRoute : Screen("Host")
     object AccountLoginScreen : Screen("AccountLoginScreen")
     object ForgotPasswordScreen : Screen("ForgotPasswordScreen")
-
+    object MusicPlayerScreen : Screen("MusicPlayerScreen")
 
 }

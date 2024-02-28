@@ -135,12 +135,14 @@ fun HomeScreen(navController: NavController){
                     ReusableMusic(
                         painterSource = painterResource(id = R.drawable.ed_sheeran),
                         contentDescription = "Ed Sheeran",
-                        label = "Ed Sheeran, Katy Perry, Pit-bull and more"
+                        label = "Ed Sheeran, Katy Perry, Pit-bull and more",
+                        navController
                     )
                     ReusableMusic(
                         painterSource = painterResource(id = R.drawable.justin_bieber),
                         contentDescription = "Justin",
-                        label = "Catch the Latest Playlist made just for you..."
+                        label = "Catch the Latest Playlist made just for you...",
+                        navController
                     )
                 }
 
@@ -171,7 +173,8 @@ fun HomeScreen(navController: NavController){
                         ReusableMusic(
                             painterSource = painterResource(id = currentImage),
                             contentDescription = "",
-                            label = currentLabel
+                            label = currentLabel,
+                            navController
                         )
                     }
                 }
@@ -234,7 +237,8 @@ fun HomeScreen(navController: NavController){
                         ReusableMusic(
                             painterSource = painterResource(id = currentImage),
                             contentDescription = "",
-                            label = currentLabel
+                            label = currentLabel,
+                            navController
                         )
                     }
                 }
@@ -297,7 +301,8 @@ fun HomeScreen(navController: NavController){
                         ReusableMusic(
                             painterSource = painterResource(id = currentImage),
                             contentDescription = "",
-                            label = currentLabel
+                            label = currentLabel,
+                            navController
                         )
                     }
                 }
@@ -360,7 +365,8 @@ fun HomeScreen(navController: NavController){
                         ReusableMusic(
                             painterSource = painterResource(id = currentImage),
                             contentDescription = "",
-                            label = currentLabel
+                            label = currentLabel,
+                            navController
                         )
                     }
                 }
