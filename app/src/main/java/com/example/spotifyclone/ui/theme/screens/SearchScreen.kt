@@ -9,8 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,7 +38,6 @@ fun SearchScreen(){
         Column (
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
         ) {
             Text(
                 text = "Search",
@@ -56,7 +54,7 @@ fun SearchScreen(){
                     )
             )
 
-            Surface (
+            Surface(
                 color = Color.White,
                 modifier = Modifier
                     .padding(
@@ -64,16 +62,17 @@ fun SearchScreen(){
                         end = 10.dp
                     )
                     .fillMaxWidth()
-                    .clickable {  }
-            ){
-                Row (
+                    .clickable { }
+            ) {
+                Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(
                         modifier = Modifier
                             .size(50.dp),
                         painter = painterResource(
-                            id = R.drawable.search),
+                            id = R.drawable.search
+                        ),
                         contentDescription = ""
                     )
                     Text(
@@ -102,12 +101,12 @@ fun SearchScreen(){
                     )
             )
 
-            Row (
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 10.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
-            ){
+            ) {
                 ReusableSurface(
                     genre = "Pop",
                     color = Color(0xff8C67AC)
@@ -134,172 +133,192 @@ fun SearchScreen(){
                     )
             )
 
-            Column (
+            LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Podcasts",
-                        color = Color(0xffE13300)
-                    )
-                    ReusableSurface(
-                        genre = "New\n" +
-                                "Releases",
-                        color = Color(0xffE8125C)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Podcasts",
+                            color = Color(0xffE13300)
+                        )
+                        ReusableSurface(
+                            genre = "New\n" +
+                                    "Releases",
+                            color = Color(0xffE8125C)
+                        )
 
+                    }
                 }
 
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Charts",
-                        color = Color(0xff8C67AC)
-                    )
-                    ReusableSurface(
-                        genre = "Concerts",
-                        color = Color(0xff1E3264)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Charts",
+                            color = Color(0xff8C67AC)
+                        )
+                        ReusableSurface(
+                            genre = "Concerts",
+                            color = Color(0xff1E3264)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Made for\n" + "you",
-                        color = Color(0xff1E3264)
-                    )
-                    ReusableSurface(
-                        genre = "At Home",
-                        color = Color(0xff477D95)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Made for\n" + "you",
+                            color = Color(0xff1E3264)
+                        )
+                        ReusableSurface(
+                            genre = "At Home",
+                            color = Color(0xff477D95)
+                        )
 
+                    }
                 }
 
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Afro",
-                        color = Color(0xffE13300)
-                    )
-                    ReusableSurface(
-                        genre = "Love",
-                        color = Color(0xffE8125C)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Afro",
+                            color = Color(0xffE13300)
+                        )
+                        ReusableSurface(
+                            genre = "Love",
+                            color = Color(0xffE8125C)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Hip-Hop",
-                        color = Color(0xff8C67AC)
-                    )
-                    ReusableSurface(
-                        genre = "Comedy",
-                        color = Color(0xff1E3264)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Hip-Hop",
+                            color = Color(0xff8C67AC)
+                        )
+                        ReusableSurface(
+                            genre = "Comedy",
+                            color = Color(0xff1E3264)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Educational",
-                        color = Color(0xff1E3264)
-                    )
-                    ReusableSurface(
-                        genre = "Documentary",
-                        color = Color(0xff477D95)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Educational",
+                            color = Color(0xff1E3264)
+                        )
+                        ReusableSurface(
+                            genre = "Documentary",
+                            color = Color(0xff477D95)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Pop-Culture",
-                        color = Color(0xff8C67AC)
-                    )
-                    ReusableSurface(
-                        genre = "Party",
-                        color = Color(0xff477D95)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Pop-Culture",
+                            color = Color(0xff8C67AC)
+                        )
+                        ReusableSurface(
+                            genre = "Party",
+                            color = Color(0xff477D95)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Mood",
-                        color = Color(0xff1E3264)
-                    )
-                    ReusableSurface(
-                        genre = "Discover",
-                        color = Color(0xff477D95)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Mood",
+                            color = Color(0xff1E3264)
+                        )
+                        ReusableSurface(
+                            genre = "Discover",
+                            color = Color(0xff477D95)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Trending",
-                        color = Color(0xffE13300)
-                    )
-                    ReusableSurface(
-                        genre = "Workout",
-                        color = Color(0xffE8125C)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Trending",
+                            color = Color(0xffE13300)
+                        )
+                        ReusableSurface(
+                            genre = "Workout",
+                            color = Color(0xffE8125C)
+                        )
 
+                    }
                 }
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    ReusableSurface(
-                        genre = "Radio",
-                        color = Color(0xff1E3264)
-                    )
-                    ReusableSurface(
-                        genre = "R&B",
-                        color = Color(0xff477D95)
-                    )
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ReusableSurface(
+                            genre = "Radio",
+                            color = Color(0xff1E3264)
+                        )
+                        ReusableSurface(
+                            genre = "R&B",
+                            color = Color(0xff477D95)
+                        )
 
+                    }
                 }
 
             }
