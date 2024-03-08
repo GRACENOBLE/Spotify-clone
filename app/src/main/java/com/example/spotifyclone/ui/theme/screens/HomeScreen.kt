@@ -2,7 +2,6 @@ package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,17 +20,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableMusic
 import com.example.spotifyclone.ui.theme.data.endColor
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.iconSize
 import com.example.spotifyclone.ui.theme.data.poppins
-import com.example.spotifyclone.ui.theme.data.posterSize
+
+val sheran = R.drawable.ed_sheeran
+val justin = R.drawable.justin_bieber
 
 val TrendingImages = arrayOf(
     R.drawable.believer_poster,
@@ -56,7 +54,9 @@ val TopPickLabels = arrayOf(
     "Cheap Trills\n"+"Song . Imagine Dragons"
 )
 @Composable
-fun HomeScreen(navController: NavController){
+fun HomeScreen(
+    onNavigateToMusicPlayerScreen: (Int) -> Unit
+){
     Surface (
         color = endColor,
         modifier = Modifier
@@ -134,16 +134,22 @@ fun HomeScreen(navController: NavController){
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
                         ReusableMusic(
-                            painterSource = painterResource(id = R.drawable.ed_sheeran),
+                            onClick = {
+                                onNavigateToMusicPlayerScreen(sheran)
+                            },
+                            painterSource = painterResource(id = sheran),
                             contentDescription = "Ed Sheeran",
-                            label = "Ed Sheeran, Katy Perry, Pit-bull and more",
-                            navController
+                            label = "Ed Sheeran, Katy Perry, Pit-bull and more"
+
                         )
                         ReusableMusic(
-                            painterSource = painterResource(id = R.drawable.justin_bieber),
+                            onClick = {
+                                onNavigateToMusicPlayerScreen(justin)
+                            },
+                            painterSource = painterResource(id = justin),
                             contentDescription = "Justin",
                             label = "Catch the Latest Playlist made just for you...",
-                            navController
+
                         )
                     }
                 }
@@ -176,10 +182,12 @@ fun HomeScreen(navController: NavController){
                             val currentImage = TrendingImages[it]
                             val currentLabel = TrendingLabels[it]
                             ReusableMusic(
+                                onClick = {
+                                    onNavigateToMusicPlayerScreen(currentImage)
+                                },
                                 painterSource = painterResource(id = currentImage),
                                 contentDescription = "",
-                                label = currentLabel,
-                                navController
+                                label = currentLabel
                             )
                         }
                     }
@@ -212,250 +220,28 @@ fun HomeScreen(navController: NavController){
                         items(3) {
                             val currentImage = TopPickImages[it]
                             val currentLabel = TopPickLabels[it]
-                            Column(
-                                modifier = Modifier
-                                    .padding(
-                                        start = 10.dp,
-                                    )
-                            ) {
-                                Image(
-                                    painter = painterResource(id = currentImage),
-                                    contentDescription = "Poster",
-                                    modifier = Modifier
-                                        .size(posterSize)
-                                )
-                                Text(
-                                    text = currentLabel,
-                                    style = TextStyle(
-                                        color = Color.White,
-                                        fontFamily = poppins,
-                                        fontWeight = FontWeight.Normal
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
-
-                item {
-                    LazyRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        items(3) {
-                            val currentImage = TrendingImages[it]
-                            val currentLabel = TrendingLabels[it]
                             ReusableMusic(
+                                onClick = {
+                                    onNavigateToMusicPlayerScreen(currentImage)
+                                },
                                 painterSource = painterResource(id = currentImage),
                                 contentDescription = "",
-                                label = currentLabel,
-                                navController
+                                label = currentLabel
                             )
                         }
                     }
                 }
-                item {
-                    Row {
-                        Text(
-                            text = "Top picks for you",
-                            style = TextStyle(
-                                color = Color.White,
-                                fontFamily = poppins,
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = headingSize
-                            ),
-                            modifier = Modifier
-                                .padding(
-                                    start = 10.dp,
-                                    top = 25.dp
-                                )
-                        )
 
-                    }
-                }
-
-                item {
-                    LazyRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        items(3) {
-                            val currentImage = TopPickImages[it]
-                            val currentLabel = TopPickLabels[it]
-                            Column(
-                                modifier = Modifier
-                                    .padding(
-                                        start = 10.dp,
-                                    )
-                            ) {
-                                Image(
-                                    painter = painterResource(id = currentImage),
-                                    contentDescription = "Poster",
-                                    modifier = Modifier
-                                        .size(posterSize)
-                                )
-                                Text(
-                                    text = currentLabel,
-                                    style = TextStyle(
-                                        color = Color.White,
-                                        fontFamily = poppins,
-                                        fontWeight = FontWeight.Normal
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
-
-                item {
-                    LazyRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        items(3) {
-                            val currentImage = TrendingImages[it]
-                            val currentLabel = TrendingLabels[it]
-                            ReusableMusic(
-                                painterSource = painterResource(id = currentImage),
-                                contentDescription = "",
-                                label = currentLabel,
-                                navController
-                            )
-                        }
-                    }
-                }
-                item {
-                    Row {
-                        Text(
-                            text = "Top picks for you",
-                            style = TextStyle(
-                                color = Color.White,
-                                fontFamily = poppins,
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = headingSize
-                            ),
-                            modifier = Modifier
-                                .padding(
-                                    start = 10.dp,
-                                    top = 25.dp
-                                )
-                        )
-
-                    }
-                }
-
-                item {
-                    LazyRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        items(3) {
-                            val currentImage = TopPickImages[it]
-                            val currentLabel = TopPickLabels[it]
-                            Column(
-                                modifier = Modifier
-                                    .padding(
-                                        start = 10.dp,
-                                    )
-                            ) {
-                                Image(
-                                    painter = painterResource(id = currentImage),
-                                    contentDescription = "Poster",
-                                    modifier = Modifier
-                                        .size(posterSize)
-                                )
-                                Text(
-                                    text = currentLabel,
-                                    style = TextStyle(
-                                        color = Color.White,
-                                        fontFamily = poppins,
-                                        fontWeight = FontWeight.Normal
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
-
-                item {
-                    LazyRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        items(3) {
-                            val currentImage = TrendingImages[it]
-                            val currentLabel = TrendingLabels[it]
-                            ReusableMusic(
-                                painterSource = painterResource(id = currentImage),
-                                contentDescription = "",
-                                label = currentLabel,
-                                navController
-                            )
-                        }
-                    }
-                }
-                item {
-                    Row {
-                        Text(
-                            text = "Top picks for you",
-                            style = TextStyle(
-                                color = Color.White,
-                                fontFamily = poppins,
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = headingSize
-                            ),
-                            modifier = Modifier
-                                .padding(
-                                    start = 10.dp,
-                                    top = 25.dp
-                                )
-                        )
-
-                    }
-                }
-
-                item {
-                    LazyRow(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        items(3) {
-                            val currentImage = TopPickImages[it]
-                            val currentLabel = TopPickLabels[it]
-                            Column(
-                                modifier = Modifier
-                                    .padding(
-                                        start = 10.dp,
-                                    )
-                            ) {
-                                Image(
-                                    painter = painterResource(id = currentImage),
-                                    contentDescription = "Poster",
-                                    modifier = Modifier
-                                        .size(posterSize)
-                                )
-                                Text(
-                                    text = currentLabel,
-                                    style = TextStyle(
-                                        color = Color.White,
-                                        fontFamily = poppins,
-                                        fontWeight = FontWeight.Normal
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
             }
         }
     }
 }
 
-@Preview(
-    //showSystemUi = true,
-    showBackground = true
-)
-@Composable
-fun HomeScreenPreview(){
-    HomeScreen(navController = rememberNavController())
-}
+//@Preview(
+//    //showSystemUi = true,
+//    showBackground = true
+//)
+//@Composable
+//fun HomeScreenPreview(){
+//    HomeScreen(navController = rememberNavController())
+//}

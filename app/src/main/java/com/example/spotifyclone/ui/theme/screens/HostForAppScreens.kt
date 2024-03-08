@@ -21,10 +21,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.spotifyclone.ui.theme.data.BottomNavigationElement
 import com.example.spotifyclone.ui.theme.data.Screen
 
@@ -107,16 +109,18 @@ fun HostPage(){
         ) {
 
             composable(
-                route = Screen.HomeScreen.route
+                route = "HomeScreen"
             ) {
-                HomeScreen(navController = navController)
+                HomeScreen(onNavigateToMusicPlayerScreen = {
+                    navController.navigate("MusicPlayerScreen/$it")
+                })
                 currentScreen.value = Screen.HomeScreen
             }
 
             composable(
                 route = Screen.SearchScreen.route
             ) {
-                SearchScreen()
+                SearchScreen(navController = navController)
                 currentScreen.value = Screen.SearchScreen
             }
 
@@ -128,10 +132,22 @@ fun HostPage(){
             }
 
             composable(
-                route = Screen.MusicPlayerScreen.route
+                route = "MusicPlayerScreen/{my_param}",
+                arguments = listOf(
+                    navArgument("my_param"){
+                        type = NavType.IntType
+                    }
+                )
             ){
-                MusicPlayerPage()
+                val param = it.arguments?.getInt("my_param") ?: return@composable
+                MusicPlayerPage(param = param)
                 currentScreen.value = Screen.MusicPlayerScreen
+            }
+            composable(
+                route = Screen.PlaylistScreen.route
+            ){
+                PlayListPage()
+                currentScreen.value = Screen.PlaylistScreen
             }
         }
     }

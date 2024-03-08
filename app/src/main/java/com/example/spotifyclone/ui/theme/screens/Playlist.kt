@@ -135,6 +135,32 @@ fun PlayListPage(){
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
+
+                ReusableMusicTab(
+                    poster = painterResource(id = R.drawable.believer),
+                    title = "Alone",
+                    author = " Alan Walker"
+                )
+                ReusableMusicTab(
+                    poster = painterResource(id = R.drawable.let_melove_you),
+                    title = "Let me love you",
+                    author = " Justin Bieber ft DJ Snake"
+                )
+                ReusableMusicTab(
+                    poster = painterResource(id = R.drawable.ignite),
+                    title = "Ignite",
+                    author = " Alan Walker"
+                )
+                ReusableMusicTab(
+                    poster = painterResource(id = R.drawable.taki_taki),
+                    title = "Taki Taki",
+                    author = " DJ Snake feat Selena Gomez"
+                )
+                ReusableMusicTab(
+                    poster = painterResource(id = R.drawable.believer_poster),
+                    title = "Believer",
+                    author = " Imagine Dragons"
+                )
                 ReusableMusicTab(
                     poster = painterResource(id = R.drawable.believer),
                     title = "Alone",

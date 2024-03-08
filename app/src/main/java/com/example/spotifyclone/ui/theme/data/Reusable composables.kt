@@ -53,10 +53,10 @@ val posterSize = 170.dp
 
 @Composable
 fun ReusableTextButton(
+    modifier: Modifier = Modifier,
     onClick: ()-> Unit,
     painterSource: Painter,
     contentDescription: String,
-    modifier: Modifier = Modifier,
     buttonText: String
 ){
 
@@ -110,20 +110,18 @@ fun ReusableTextButton(
 
 @Composable
 fun ReusableMusic(
+    onClick: () -> Unit,
     painterSource: Painter,
     contentDescription: String,
-    label: String,
-    navController: NavController
+    label: String
+
 ){
     val reusableWidth = 170.dp
     Column (
         modifier = Modifier
-            .clickable {
-                navController.navigate(route =  Screen.MusicPlayerScreen.route)
-            }
+            .clickable { onClick() }
             .width(reusableWidth)
             .padding(end = 10.dp)
-
     ) {
         Image(
             painter = painterSource,
@@ -148,14 +146,21 @@ fun ReusableMusic(
 @Composable
 fun ReusableSurface(
     genre: String,
-    color: Color
+    color: Color,
+    navController: NavController
+
 ){
     Surface (
-        modifier = Modifier
-            .height(130.dp)
-            .width(170.dp),
         shape = RoundedCornerShape(10.dp),
         color = color,
+        modifier = Modifier
+            .clickable {
+                navController.navigate(route = Screen.PlaylistScreen.route)
+            }
+            .height(130.dp)
+            .width(170.dp)
+
+
     ) {
         Text(
             modifier = Modifier
@@ -173,6 +178,7 @@ fun ReusableSurface(
     }
 }
 
+
 @Composable
 fun ReusableMusicTab(
     poster: Painter,
@@ -182,7 +188,8 @@ fun ReusableMusicTab(
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 10.dp),
+            .padding(bottom = 10.dp)
+            ,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ){
@@ -254,10 +261,7 @@ fun ReusableComposable(){
         color = Color(0xff121212)
     ) {
         Column {
-            ReusableSurface(
-                genre = "Dude",
-                color = Color.LightGray
-            )
+            ReusableMusicTab(poster = painterResource(id = R.drawable.justin_bieber), title = "Trial", author = "Me")
         }
     }
 }

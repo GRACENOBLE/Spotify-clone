@@ -22,13 +22,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableSurface
 import com.example.spotifyclone.ui.theme.data.headingSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @Composable
-fun SearchScreen(){
+fun SearchScreen(navController: NavController){
     Surface (
         modifier =Modifier
             .fillMaxSize(),
@@ -109,11 +111,13 @@ fun SearchScreen(){
             ) {
                 ReusableSurface(
                     genre = "Pop",
-                    color = Color(0xff8C67AC)
+                    color = Color(0xff8C67AC),
+                    navController
                 )
                 ReusableSurface(
                     genre = "Bollywood",
-                    color = Color(0xff8B1932)
+                    color = Color(0xff8B1932),
+                    navController
                 )
 
             }
@@ -146,12 +150,14 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Podcasts",
-                            color = Color(0xffE13300)
+                            color = Color(0xffE13300),
+                            navController
                         )
                         ReusableSurface(
                             genre = "New\n" +
                                     "Releases",
-                            color = Color(0xffE8125C)
+                            color = Color(0xffE8125C),
+                            navController
                         )
 
                     }
@@ -166,11 +172,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Charts",
-                            color = Color(0xff8C67AC)
+                            color = Color(0xff8C67AC),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Concerts",
-                            color = Color(0xff1E3264)
+                            color = Color(0xff1E3264),
+                            navController
                         )
 
                     }
@@ -184,11 +192,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Made for\n" + "you",
-                            color = Color(0xff1E3264)
+                            color = Color(0xff1E3264),
+                            navController
                         )
                         ReusableSurface(
                             genre = "At Home",
-                            color = Color(0xff477D95)
+                            color = Color(0xff477D95),
+                            navController
                         )
 
                     }
@@ -203,11 +213,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Afro",
-                            color = Color(0xffE13300)
+                            color = Color(0xffE13300),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Love",
-                            color = Color(0xffE8125C)
+                            color = Color(0xffE8125C),
+                            navController
                         )
 
                     }
@@ -221,11 +233,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Hip-Hop",
-                            color = Color(0xff8C67AC)
+                            color = Color(0xff8C67AC),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Comedy",
-                            color = Color(0xff1E3264)
+                            color = Color(0xff1E3264),
+                            navController
                         )
 
                     }
@@ -239,11 +253,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Educational",
-                            color = Color(0xff1E3264)
+                            color = Color(0xff1E3264),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Documentary",
-                            color = Color(0xff477D95)
+                            color = Color(0xff477D95),
+                            navController
                         )
 
                     }
@@ -257,11 +273,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Pop-Culture",
-                            color = Color(0xff8C67AC)
+                            color = Color(0xff8C67AC),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Party",
-                            color = Color(0xff477D95)
+                            color = Color(0xff477D95),
+                            navController
                         )
 
                     }
@@ -275,11 +293,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Mood",
-                            color = Color(0xff1E3264)
+                            color = Color(0xff1E3264),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Discover",
-                            color = Color(0xff477D95)
+                            color = Color(0xff477D95),
+                            navController
                         )
 
                     }
@@ -293,11 +313,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Trending",
-                            color = Color(0xffE13300)
+                            color = Color(0xffE13300),
+                            navController
                         )
                         ReusableSurface(
                             genre = "Workout",
-                            color = Color(0xffE8125C)
+                            color = Color(0xffE8125C),
+                            navController
                         )
 
                     }
@@ -311,11 +333,13 @@ fun SearchScreen(){
                     ) {
                         ReusableSurface(
                             genre = "Radio",
-                            color = Color(0xff1E3264)
+                            color = Color(0xff1E3264),
+                            navController
                         )
                         ReusableSurface(
                             genre = "R&B",
-                            color = Color(0xff477D95)
+                            color = Color(0xff477D95),
+                            navController
                         )
 
                     }
@@ -336,5 +360,5 @@ fun SearchScreen(){
 
 @Composable
 fun SearchScreenPreview(){
-    SearchScreen()
+    SearchScreen(navController = rememberNavController())
 }

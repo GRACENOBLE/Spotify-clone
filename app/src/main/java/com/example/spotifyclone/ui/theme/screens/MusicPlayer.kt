@@ -25,7 +25,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.spotifyclone.R
@@ -33,7 +32,7 @@ import com.example.spotifyclone.ui.theme.data.iconSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @Composable
-fun MusicPlayerPage(){
+fun MusicPlayerPage(param: Int){
 
 
 
@@ -103,7 +102,7 @@ fun MusicPlayerPage(){
                         .fillMaxWidth()
                         .padding(top = 30.dp),
                     contentScale = ContentScale.FillWidth,
-                    painter = painterResource(id = R.drawable.poster),
+                    painter = painterResource(id = param),
                     contentDescription = "Current Playing song's poster",
                 )
 
@@ -267,12 +266,12 @@ fun MusicPlayerPage(){
         }
     }
 }
-
-@Preview(
-//    showSystemUi = true,
-    showBackground = true
-)
-@Composable
-fun MusicPlayerPagePreview(){
-    MusicPlayerPage()
-}
+//
+//@Preview(
+////    showSystemUi = true,
+//    showBackground = true
+//)
+//@Composable
+//fun MusicPlayerPagePreview(){
+//    MusicPlayerPage()
+//}
