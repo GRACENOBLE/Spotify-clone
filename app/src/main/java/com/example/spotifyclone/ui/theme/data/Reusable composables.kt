@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -28,7 +27,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -181,15 +179,16 @@ fun ReusableSurface(
 
 @Composable
 fun ReusableMusicTab(
+    onClick: () -> Unit,
     poster: Painter,
     title: String,
     author: String
 ){
     Row (
         modifier = Modifier
+            .clickable { onClick() }
             .fillMaxWidth()
-            .padding(bottom = 10.dp)
-            ,
+            .padding(bottom = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ){
@@ -250,19 +249,19 @@ fun reusableGradient(
     )
 }
 
-@Preview(
-    showSystemUi = true,
-    showBackground = true
-)
-@Composable
-fun ReusableComposable(){
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = Color(0xff121212)
-    ) {
-        Column {
-            ReusableMusicTab(poster = painterResource(id = R.drawable.justin_bieber), title = "Trial", author = "Me")
-        }
-    }
-}
+//@Preview(
+//    showSystemUi = true,
+//    showBackground = true
+//)
+//@Composable
+//fun ReusableComposable(){
+//    Surface(
+//        modifier = Modifier.fillMaxSize(),
+//        color = Color(0xff121212)
+//    ) {
+//        Column {
+//            ReusableMusicTab(poster = painterResource(id = R.drawable.justin_bieber), title = "Trial", author = "Me")
+//        }
+//    }
+//}
 

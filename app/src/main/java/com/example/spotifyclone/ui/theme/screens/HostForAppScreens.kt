@@ -111,9 +111,11 @@ fun HostPage(){
             composable(
                 route = "HomeScreen"
             ) {
-                HomeScreen(onNavigateToMusicPlayerScreen = {
-                    navController.navigate("MusicPlayerScreen/$it")
-                })
+                HomeScreen(
+                    onNavigateToMusicPlayerScreen = {
+                        navController.navigate("MusicPlayerScreen/$it")
+                    }
+                )
                 currentScreen.value = Screen.HomeScreen
             }
 
@@ -140,13 +142,17 @@ fun HostPage(){
                 )
             ){
                 val param = it.arguments?.getInt("my_param") ?: return@composable
-                MusicPlayerPage(param = param)
+                MusicPlayerPage(param = param, navController = navController)
                 currentScreen.value = Screen.MusicPlayerScreen
             }
             composable(
                 route = Screen.PlaylistScreen.route
             ){
-                PlayListPage()
+                PlayListPage(
+                    onNavigateToMusicPlayerScreen = {
+                        navController.navigate("MusicPlayerScreen/$it")
+                    }
+                )
                 currentScreen.value = Screen.PlaylistScreen
             }
         }

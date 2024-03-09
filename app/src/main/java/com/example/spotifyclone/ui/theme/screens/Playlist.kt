@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.spotifyclone.R
@@ -29,7 +28,7 @@ import com.example.spotifyclone.ui.theme.data.ReusableMusicTab
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @Composable
-fun PlayListPage(){
+fun PlayListPage(onNavigateToMusicPlayerScreen: (Int) -> Unit ){
     Surface(
         color = Color(0xff121212)
     ) {
@@ -137,51 +136,61 @@ fun PlayListPage(){
             ) {
 
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.believer)},
                     poster = painterResource(id = R.drawable.believer),
                     title = "Alone",
                     author = " Alan Walker"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.let_melove_you)},
                     poster = painterResource(id = R.drawable.let_melove_you),
                     title = "Let me love you",
                     author = " Justin Bieber ft DJ Snake"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.ignite)},
                     poster = painterResource(id = R.drawable.ignite),
                     title = "Ignite",
                     author = " Alan Walker"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.taki_taki)},
                     poster = painterResource(id = R.drawable.taki_taki),
                     title = "Taki Taki",
                     author = " DJ Snake feat Selena Gomez"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.believer_poster)},
                     poster = painterResource(id = R.drawable.believer_poster),
                     title = "Believer",
                     author = " Imagine Dragons"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.believer)},
                     poster = painterResource(id = R.drawable.believer),
                     title = "Alone",
                     author = " Alan Walker"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.let_melove_you)},
                     poster = painterResource(id = R.drawable.let_melove_you),
                     title = "Let me love you",
                     author = " Justin Bieber ft DJ Snake"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.ignite)},
                     poster = painterResource(id = R.drawable.ignite),
                     title = "Ignite",
                     author = " Alan Walker"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.taki_taki)},
                     poster = painterResource(id = R.drawable.taki_taki),
                     title = "Taki Taki",
                     author = " DJ Snake feat Selena Gomez"
                 )
                 ReusableMusicTab(
+                    onClick = {onNavigateToMusicPlayerScreen(R.drawable.believer_poster)},
                     poster = painterResource(id = R.drawable.believer_poster),
                     title = "Believer",
                     author = " Imagine Dragons"
@@ -192,11 +201,11 @@ fun PlayListPage(){
     }
 }
 
-@Preview(
-    showBackground = true,
-    showSystemUi = true
-)
-@Composable
-fun PlaylistPagePreview(){
-    PlayListPage()
-}
+//@Preview(
+//    showBackground = true,
+//    showSystemUi = true
+//)
+//@Composable
+//fun PlaylistPagePreview(){
+//    PlayListPage()
+//}

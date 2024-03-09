@@ -27,12 +27,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.iconSize
 import com.example.spotifyclone.ui.theme.data.poppins
 
 @Composable
-fun MusicPlayerPage(param: Int){
+fun MusicPlayerPage(param: Int, navController: NavController){
 
 
 
@@ -56,7 +57,7 @@ fun MusicPlayerPage(param: Int){
                     modifier = Modifier
                         .padding(start = 20.dp)
                         .size(20.dp)
-                        .clickable {  },
+                        .clickable { navController.popBackStack() },
                     painter = painterResource(
                         id = R.drawable.arrow
                     ),
