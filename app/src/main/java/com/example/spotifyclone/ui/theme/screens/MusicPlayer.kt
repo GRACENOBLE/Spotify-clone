@@ -17,6 +17,10 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,9 +29,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.iconSize
 import com.example.spotifyclone.ui.theme.data.poppins
@@ -35,6 +41,22 @@ import com.example.spotifyclone.ui.theme.data.poppins
 @Composable
 fun MusicPlayerPage(param: Int, navController: NavController){
 
+    var playState by remember {
+        mutableStateOf(1)
+    }
+    val playImageResource = when(playState){
+        1 -> R.drawable.playicon
+        else -> R.drawable.pause
+    }
+
+
+    var likeState by remember {
+        mutableStateOf(1)
+    }
+    val likeImageResource = when(likeState){
+        1 -> R.drawable.heart
+        else -> R.drawable.greenspotifyheart
+    }
 
 
     Surface (
@@ -84,7 +106,7 @@ fun MusicPlayerPage(param: Int, navController: NavController){
                 Image(
                     modifier = Modifier
                         .size(iconSize)
-                        .clickable {  },
+                        .clickable { },
                     painter = painterResource(id = R.drawable.properties),
                     contentDescription = "Properties"
                 )
@@ -140,8 +162,14 @@ fun MusicPlayerPage(param: Int, navController: NavController){
                     Image(
                         modifier = Modifier
                             .size(iconSize)
-                            .clickable {  },
-                        painter = painterResource(id = R.drawable.heart),
+                            .clickable {
+                                if (likeState == 1) {
+                                    likeState = 2
+                                }else{
+                                    likeState = 1
+                                }
+                            },
+                        painter = painterResource(id = likeImageResource),
                         contentDescription = "heart icon"
                     )
                 }
@@ -170,20 +198,26 @@ fun MusicPlayerPage(param: Int, navController: NavController){
                     Image(
                         modifier = Modifier
                             .size(iconSize)
-                            .clickable {  },
+                            .clickable { },
                         painter = painterResource(id = R.drawable.shuffle),
                         contentDescription = "" )
                     Image(
                         modifier = Modifier
                             .size(iconSize)
-                            .clickable {  },
+                            .clickable { },
                         painter = painterResource(id = R.drawable.previous_play),
                         contentDescription = "" )
                     Image(
                         modifier = Modifier
                             .size(76.dp)
-                            .clickable {  },
-                        painter = painterResource(id = R.drawable.pause),
+                            .clickable {
+                                   if (playState == 1) {
+                                       playState = 2
+                                   }else{
+                                       playState = 1
+                                   }
+                            },
+                        painter = painterResource(id = playImageResource),
                         contentDescription = "" )
                     Image(
                         modifier = Modifier
@@ -267,12 +301,12 @@ fun MusicPlayerPage(param: Int, navController: NavController){
         }
     }
 }
-//
-//@Preview(
-////    showSystemUi = true,
-//    showBackground = true
-//)
-//@Composable
-//fun MusicPlayerPagePreview(){
-//    MusicPlayerPage()
-//}
+
+@Preview(
+//    showSystemUi = true,
+    showBackground = true
+)
+@Composable
+fun MusicPlayerPagePreview(){
+    MusicPlayerPage(param = R.drawable.believer, navController = rememberNavController())
+}
