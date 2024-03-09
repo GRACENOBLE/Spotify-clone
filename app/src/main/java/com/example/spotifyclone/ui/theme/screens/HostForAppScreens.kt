@@ -114,7 +114,8 @@ fun HostPage(){
                 HomeScreen(
                     onNavigateToMusicPlayerScreen = {
                         navController.navigate("MusicPlayerScreen/$it")
-                    }
+                    },
+                    navController = navController
                 )
                 currentScreen.value = Screen.HomeScreen
             }
@@ -154,6 +155,13 @@ fun HostPage(){
                     }
                 )
                 currentScreen.value = Screen.PlaylistScreen
+            }
+
+            composable(
+                route = "Settings"
+            ){
+                SettingsPage()
+                currentScreen.value = Screen.MusicPlayerScreen
             }
         }
     }

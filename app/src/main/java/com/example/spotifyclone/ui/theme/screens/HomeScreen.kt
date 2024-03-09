@@ -1,6 +1,7 @@
 package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableMusic
 import com.example.spotifyclone.ui.theme.data.endColor
@@ -55,7 +57,8 @@ val TopPickLabels = arrayOf(
 )
 @Composable
 fun HomeScreen(
-    onNavigateToMusicPlayerScreen: (Int) -> Unit
+    onNavigateToMusicPlayerScreen: (Int) -> Unit,
+    navController: NavController
 ){
     Surface (
         color = endColor,
@@ -122,6 +125,9 @@ fun HomeScreen(
                                 contentDescription = "settings",
                                 modifier = Modifier
                                     .size(iconSize)
+                                    .clickable {
+                                        navController.navigate("Settings")
+                                    }
                             )
                         }
                     }
