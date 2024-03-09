@@ -151,7 +151,12 @@ fun AccountCreationPage(navController: NavController){
             Column {
                 ReusableTextButton(
                     onClick = {
-                        navController.navigate(route = Screen.HomeScreen.route)
+                        navController.navigate(route = Screen.AppRoute.route){
+                            popUpTo(navController.graph.findStartDestination().id){
+                                inclusive = true
+                            }
+                        }
+
                     },
                     painterSource = painterResource(id = R.drawable.google),
                     contentDescription = "null",
@@ -159,7 +164,11 @@ fun AccountCreationPage(navController: NavController){
                 )
                 ReusableTextButton(
                     onClick = {
-                        navController.navigate(route = Screen.HomeScreen.route)
+                        navController.navigate(route = Screen.AppRoute.route){
+                            popUpTo(navController.graph.findStartDestination().id){
+                                inclusive = true
+                            }
+                        }
                     },
                     painterSource = painterResource(id = R.drawable.facebook),
                     contentDescription = "null",
@@ -167,7 +176,11 @@ fun AccountCreationPage(navController: NavController){
                 )
                 ReusableTextButton(
                     onClick = {
-                        navController.navigate(route = Screen.HomeScreen.route)
+                        navController.navigate(route = Screen.AppRoute.route){
+                            popUpTo(navController.graph.findStartDestination().id){
+                                inclusive = true
+                            }
+                        }
                     },
                     painterSource = painterResource(id = R.drawable.apple),
                     contentDescription = "null",

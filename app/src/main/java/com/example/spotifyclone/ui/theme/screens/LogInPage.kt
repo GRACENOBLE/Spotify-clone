@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.ReusableTextButton
@@ -111,14 +112,26 @@ fun LoginPage(navController: NavController){
                     )
 
                     ReusableTextButton(
-                        onClick = { navController.navigate(route = Screen.AppRoute.route) },
+                        onClick = {
+                            navController.navigate(route = Screen.AppRoute.route){
+                                popUpTo(navController.graph.findStartDestination().id){
+                                    inclusive = true
+                                }
+                            }
+                        },
                         painterSource = painterResource(id = R.drawable.google),
                         contentDescription = "google icon",
                         buttonText = "Continue with Google"
                     )
 
                     ReusableTextButton(
-                        onClick = { navController.navigate(route = Screen.AppRoute.route) },
+                        onClick = {
+                            navController.navigate(route = Screen.AppRoute.route){
+                                popUpTo(navController.graph.findStartDestination().id){
+                                    inclusive = true
+                                }
+                            }
+                        },
                         painterSource = painterResource(id = R.drawable.facebook),
                         contentDescription = "facebook",
                         buttonText = "Continue with Facebook"

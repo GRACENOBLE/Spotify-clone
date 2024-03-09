@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.Screen
@@ -108,7 +109,11 @@ fun PhoneNumberScreen(navController: NavController){
                 modifier = Modifier
                     .align(alignment = Alignment.CenterHorizontally),
                 onClick = {
-                    navController.navigate(route = Screen.AppRoute.route)
+                    navController.navigate(route = Screen.AppRoute.route){
+                        popUpTo(navController.graph.findStartDestination().id){
+                            inclusive = true
+                        }
+                    }
                 },
                 colors = ButtonDefaults.buttonColors(Color(0xff4CAF50))
             ) {

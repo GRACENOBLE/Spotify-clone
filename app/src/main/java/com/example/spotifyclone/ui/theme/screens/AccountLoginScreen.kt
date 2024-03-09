@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.spotifyclone.R
 import com.example.spotifyclone.ui.theme.data.Screen
@@ -135,7 +136,11 @@ fun AccountLoginScreen(navController: NavController){
 
                 Button(
                     onClick = {
-                        navController.navigate(route = Screen.AppRoute.route)
+                        navController.navigate(route = Screen.AppRoute.route){
+                            popUpTo(navController.graph.findStartDestination().id){
+                                inclusive = true
+                            }
+                        }
                     },
                     colors = ButtonDefaults.buttonColors(Color(0xff4CAF50)),
                     modifier = Modifier
