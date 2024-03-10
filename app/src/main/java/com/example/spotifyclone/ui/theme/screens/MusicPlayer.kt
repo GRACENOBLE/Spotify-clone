@@ -58,6 +58,22 @@ fun MusicPlayerPage(param: Int, navController: NavController){
         else -> R.drawable.greenspotifyheart
     }
 
+    var shuffleState by remember {
+        mutableStateOf(1)
+    }
+    val shuffleImageResource = when(shuffleState){
+        1 -> R.drawable.shuffle
+        else -> R.drawable.greenshuffle
+    }
+
+    var loopState by remember {
+        mutableStateOf(1)
+    }
+    val loopImageResource = when(loopState){
+        1 -> R.drawable.loop
+        else -> R.drawable.greenloop
+    }
+
 
     Surface (
         modifier = Modifier
@@ -198,8 +214,14 @@ fun MusicPlayerPage(param: Int, navController: NavController){
                     Image(
                         modifier = Modifier
                             .size(iconSize)
-                            .clickable { },
-                        painter = painterResource(id = R.drawable.shuffle),
+                            .clickable {
+                                   if(shuffleState == 1){
+                                       shuffleState = 2
+                                   }else{
+                                       shuffleState = 1
+                                   }
+                            },
+                        painter = painterResource(id = shuffleImageResource),
                         contentDescription = "" )
                     Image(
                         modifier = Modifier
@@ -228,8 +250,14 @@ fun MusicPlayerPage(param: Int, navController: NavController){
                     Image(
                         modifier = Modifier
                             .size(iconSize)
-                            .clickable {  },
-                        painter = painterResource(id = R.drawable.loop),
+                            .clickable {
+                                   if(loopState == 1){
+                                       loopState = 2
+                                   }else{
+                                       loopState = 1
+                                   }
+                            },
+                        painter = painterResource(id = loopImageResource),
                         contentDescription = "" )
 
                 }
