@@ -128,6 +128,13 @@ fun HostPage(){
             }
 
             composable(
+                route = "ActualSearchScreenRoute"
+            ) {
+                ActualSearchScreen(navController = navController)
+                currentScreen.value = Screen.MusicPlayerScreen
+            }
+
+            composable(
                 route = Screen.Library.route
             ) {
                 LibraryScreen()

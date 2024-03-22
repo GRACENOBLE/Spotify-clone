@@ -1,4 +1,4 @@
-package com.example.spotifyclone.ui.theme.screens
+    package com.example.spotifyclone.ui.theme.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -10,10 +10,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,6 +41,7 @@ import com.example.spotifyclone.ui.theme.data.poppins
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountCreationPage(navController: NavController){
+    var text by remember {mutableStateOf ("")}
     Surface(
         color = Color(0xff121212)
     ) {
@@ -68,11 +74,12 @@ fun AccountCreationPage(navController: NavController){
                         color = Color.White
                     )
                 )
-                TextField(
+                OutlinedTextField(
+                    label = {Text("name@Domain.com")},
                     modifier = Modifier
                         .fillMaxWidth(),
-                    value = "name@Domain.com",
-                    onValueChange = {}
+                    value = text,
+                    onValueChange = { text = it}
                 )
             }
 

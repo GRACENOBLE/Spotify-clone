@@ -64,7 +64,7 @@ fun SearchScreen(navController: NavController){
                         end = 10.dp
                     )
                     .fillMaxWidth()
-                    .clickable { }
+                    .clickable { navController.navigate("ActualSearchScreenRoute") }
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
